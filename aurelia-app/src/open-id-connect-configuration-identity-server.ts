@@ -31,8 +31,8 @@ export default {
     loadUserInfo: false,
     post_logout_redirect_uri: `${appHost}/signout-oidc`,
     redirect_uri: `${appHost}/signin-oidc`,
-    response_type: "id_token",
-    scope: "openid email profile",
+    response_type: "id_token token",
+    scope: "openid email profile api",
     // number of millisecods to wait for the authorization
     // server to response to silent renew request
     silentRequestTimeout: 10000,
