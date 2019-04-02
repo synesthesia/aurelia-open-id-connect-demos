@@ -4,7 +4,7 @@ import { User } from "oidc-client";
 import { OpenIdConnect, OpenIdConnectRoles } from "aurelia-open-id-connect";
 
 @autoinject
-export class App {
+export class Login {
 
   private router: Router;
   private user: User;
@@ -13,19 +13,22 @@ export class App {
     this.openIdConnect.observeUser((user: User) => this.user = user);
   }
 
-  atatched(){
+  attached() {
+
     if (this.user != null) {
-      console.log("Setting root to login");
+      console.log("Setting root to app");
       this.router.navigate('/', { replace: true, trigger: false });
-      this.aurelia.setRoot("login");
+      this.aurelia.setRoot("app");
     }
+    
   }
+
 
   public configureRouter(routerConfiguration: RouterConfiguration, router: Router) {
 
     // switch from hash (#) to slash (/) navigation
     routerConfiguration.options.pushState = true;
-    routerConfiguration.title = "OpenID Connect Implicit Flow Demo";
+    routerConfiguration.title = "OpenID Connect Login Root";
 
     // configure routes
     routerConfiguration.map([
@@ -35,17 +38,7 @@ export class App {
         route: ["", "index"],
         title: "index",
         nav: true,
-      },
-      {
-        moduleId: "private",
-        name: "private",
-        route: ["private"],
-        title: "private",
-        nav: true,
-        settings: {
-          roles: [OpenIdConnectRoles.Authenticated],
-        }
-      },
+      }
     ]);
 
     this.openIdConnect.configure(routerConfiguration);

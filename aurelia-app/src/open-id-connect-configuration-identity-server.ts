@@ -4,7 +4,7 @@ import { UserManagerSettings, WebStorageStateStore } from "oidc-client";
 const appHost = "http://localhost:9000";
 
 export default {
-  loginRedirectRoute: "/private",
+  loginRedirectRoute: "/index",
   logoutRedirectRoute: "/index",
   unauthorizedRedirectRoute: "/index",
   userManagerSettings: {

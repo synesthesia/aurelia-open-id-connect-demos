@@ -20,6 +20,7 @@ export function configure(aurelia: Aurelia) {
   if (environment.testing) {
     aurelia.use.plugin('aurelia-testing');
   }
+  
 
-  aurelia.start().then(() => aurelia.setRoot());
+  aurelia.start().then(() => aurelia.setRoot("app-shell"));
 }
